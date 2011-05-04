@@ -14,7 +14,7 @@
         </dependency>
         <dependency>
             <groupId>org.specs2</groupId>
-            <artifactId>specs2</artifactId>
+            <artifactId>specs2_2.8.1</artifactId>
             <version>1.2</version>
             <scope>compile</scope>
         </dependency>
