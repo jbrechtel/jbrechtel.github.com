@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="James Brechtel" />
+    <meta name='viewport' content='width=device-width; user-scalable=no'/>
+    <title>Building Android Apps with Scala - IntelliJ</title>
+    <link href='http://fonts.googleapis.com/css?family=Voltaire|Carme' rel='stylesheet' type='text/css'/>
+    <link href='/stylesheets/site.css' rel='stylesheet' type='text/css'/>
+    <link href='/atom.xml' rel='alternate' type='application/atom+xml' title='Atom feed for nevercertain.com'/>
+  </head>
+  <body>
+    <header>
+      <section class="blog_title">
+        <a href="/"> never certain - a blog by James Brechtel </a>
+      </aside>
+    </header>
+    <article>
+  <header>
+  <a href="/2011/02/18/scala-android-intellij-win-part-3.html">Building Android Apps with Scala - IntelliJ</a>
+    <br><span class="date">February 18, 2011</span>
+  </header>
+  <p><strong>note to the reader</strong> This is the third in a series of posts about getting
+started with Scala, Android and IntelliJ.  The content here assumes that you
+already have a working install of IntelliJ and the Android SDK plus a project
+created using simple-build-tool.  If you don't have these things then please
+check out <a href="http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-1-prerequisites">Part 1 - Prerequisites</a> and <a href="http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-2-simple-build-tool">Part 2 - simple-build-tool</a>)</p>
+
+<h2>IntelliJ Plugins</h2>
+
+<p>Before we get started we need to install some IntelliJ plugins.</p>
+
+<ul>
+<li>In IntelliJ click File -> Settings</li>
+<li>Scroll down to Plugins</li>
+<li>Click the 'Available' tab</li>
+<li>Install the Scala, Sbt, and Android plugins</li>
+<li>Right click each plugin and select 'Download and Install'</li>
+<li>Allow IntelliJ to restart after installing the plugins</li>
+</ul>
+
+
+<p>After the plugins are installed we have to configure the Sbt plugin so that
+it can find the Sbt jar file.  Go to File -> Settings -> Sbt to do this.</p>
+
+<h2>Creating the IntelliJ project file</h2>
+
+<p>Unfortunately, this part of the process requires a bit of hackery.  My
+intent is to modify the Android Sbt plugin to create projects that are more
+suitable from the outset and combine that the work done in the <a href="https://github.com/mpeltonen/sbt-idea">sbt-idea</a>
+plugin to automate this entire process.  Until someone does that, these are
+the steps required.</p>
+
+<p>Also, as I said in <a href="http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-2-simple-build-tool">Part 2</a>, nothing we do here will prevent us from
+building, packaging, deploying or testing our project using sbt from the
+command line.  You should always be able to do that regardless of the IDE you
+are using.</p>
+
+<h4>Now, let's fire up IntelliJ and create this project.</h4>
+
+<ul>
+<li>Create Java project from existing sources</li>
+<li>Enter a name for the project</li>
+<li>In the 'Project files location' field, enter the path to the root of the project.
+
+<ul>
+<li>This should be $project_path</li>
+<li>IntelliJ should find source files in $project_path/src/main/java</li>
+</ul>
+</li>
+<li>Click ‘Next’ and you should see the Libraries list
+
+<ul>
+<li>There should be lots of libraries</li>
+</ul>
+</li>
+<li>Find the library named ‘lib’ and rename it to ‘scala_2.8.1’</li>
+<li>Click ‘Next’ and you should the Modules list
+
+<ul>
+<li>There should be one module, named Main.  Rename to $project_name</li>
+</ul>
+</li>
+<li>Click ‘Next’ and you should see the Facets list
+
+<ul>
+<li>There should be one facet, Android</li>
+</ul>
+</li>
+<li>Click ‘Finish’</li>
+</ul>
+
+
+<p>Great!  At this point, we’ve got some IntelliJ project files created which
+reference the generated Java source files for the project we created in <a href="http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-2-simple-build-tool">Part 2</a>.</p>
+
+<p>Now we need to change a few things.  IntelliJ still doesn’t know about our
+Scala source files and the IntelliJ Android plugin doesn’t know what Sbt is
+doing.  Also, a meaningful ‘Run’ configuration from the IDE is nice.</p>
+
+<h2>Hacking up the IntelliJ project</h2>
+
+<h4>Let’s get our source tree in order first.</h4>
+
+<ul>
+<li>Right click on 'Scala' folder.</li>
+<li>Mark directory as Source Root</li>
+<li>Right click on Scala and add package, 'com.test.myproject'</li>
+<li>Rename Activity.scala to MainActivity.scala  (we're trying to make IntelliJ happy)</li>
+<li>put MainActivity.scala in com.test.myproject package just created</li>
+</ul>
+
+
+<h4>Configure the IntelliJ Android plugin</h4>
+
+<p>The Android facet expects some things to be in different places</p>
+
+<ul>
+<li>Right Click on the project in the project tab and select Open Module Settings</li>
+<li>Select Facets</li>
+<li>Select Android</li>
+<li>Select Compiler</li>
+<li>In the section 'AAPT Compiler'</li>
+<li>Change '$project_path/src/main/gen'  to '$project_path/src/main/java'</li>
+<li>In the section 'Android Packaging Compiler'</li>
+<li>Change APK Path to '$project_path/target/scala_2.8.1/myproject_2.8.1-0.1.apk'</li>
+</ul>
+
+
+<p>Also in the project settings make SURE that the Scala dependecy is set to to
+‘Provided’ (NOT compile, test or runtime) so that if you ever let IntelliJ
+(instead of Sbt) build the project then it won't also try to generate
+Dalvik bytecode for the Scala library.  The Scala library contains classes
+which have more functions in them than the Dalvik bytecode conversion tool can handle.</p>
+
+<p>This issue is circumvented by the Sbt build process because Sbt uses ProGuard to
+remove unused classes and functions from the Scala library before converting it to
+Dalvik bytecode.</p>
+
+<p>Now, let's show IntelliJ how to build our project</p>
+
+<h4>(Adding a Run configuration that uses Sbt)</h4>
+
+<ul>
+<li>In the IntelliJ menu, click 'Run'</li>
+<li>Click 'Edit Configurations'</li>
+<li>Click the + in the top left and select Android application</li>
+<li>Enter ‘DeployRun’ in the Name textbox where it says 'Unnamed'</li>
+<li>In the Module drop down select your project.  (There should be only one item in the list)</li>
+<li>Uncheck 'Make'</li>
+<li>Check 'Run Sbt Action'</li>
+<li>Click the ellipsis next to 'Run Sbt Action' and in the dropdown list/text box type 'package-debug'</li>
+<li>Click OK to close that dialog</li>
+<li>Click OK to close the Run Configuration dialog</li>
+</ul>
+
+
+<h4>You can now rebuild and run your project from IntelliJ by executing the DeployRun configuration.</h4>
+
+<p>You can setup other build configurations to execute additional Sbt targets.</p>
+
+<p>Next time we’ll cover running your tests with the awesome <a href="http://www.scalatest.org/">ScalaTest</a> framework
+from inside IntelliJ.</p>
+
+</article>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nevercertain';
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = 'unique_dynamic_id_1234';
+    // var disqus_url = 'http://example.com/permalink-to-page.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </body>
+  <script type="text/javascript">
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-9950155-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+</html>

@@ -1,0 +1,1513 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Nevercertain.com</title>
+  <link href="http://nevercertain.com/"/>
+  <link type="application/atom+xml" rel="self" href="http://nevercertain.com/atom.xml"/>
+  <updated>2012-06-08T23:32:50-04:00</updated>
+  <id>http://nevercertain.com/</id>
+  <author>
+    <name>James Brechtel</name>
+    <email>jbrechtel@gmail.com</email>
+  </author>
+
+  
+  <entry>
+    <id>http://nevercertain.com/2012/01/01/what-tdd-is-and-is-not</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2012/01/01/what-tdd-is-and-is-not.html"/>
+    <title>What TDD is and is not</title>
+    <updated>2012-01-01T00:00:00-05:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;h3&gt;Let's define &quot;practicing TDD&quot;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?TestDrivenDevelopment&quot;&gt;Test driven development&lt;/a&gt; itself
+is &lt;a href=&quot;http://en.wikipedia.org/wiki/Test-driven_development&quot;&gt;well defined&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, since software development methodolgies are like religions you can't be
+considered a practitioner unless you follow the practice 100% of the time.  Just like religion.  Right?&lt;/p&gt;
+
+&lt;p&gt;(Also, who cares if you're considered a practitioner?  Why does that matter?)&lt;/p&gt;
+
+&lt;p&gt;This is absurd anyways.  I take baths.  I am not, however, taking a bath right now.
+Does that mean I do not bathe?&lt;/p&gt;
+
+&lt;p&gt;Let's get rid of this ridiculous notion of saying when and how often you should practice TDD.
+Just do it when you can imagine a net benefit to doing so.  How's that?  If you don't THINK
+there is a reason to TDD a particular piece of functionality then DON'T!  Do not make TDD a
+dogma.  It's that simple.&lt;/p&gt;
+
+&lt;p&gt;Like any practice, as you continue to write tests and write them before actual code you'll get
+better at it.  You'll think more about how you'll test the software you're going to write.  Over
+time a new skill will develop and you'll find yourself covering more kinds of functionality with
+tests.&lt;/p&gt;
+
+&lt;h4&gt;Sometimes you don't have much choice&lt;/h4&gt;
+
+&lt;p&gt;You'll also find social pressure on teams pushes the practice of TDD.  This is an
+unfortunate reality that I do not know the answer for.  Teams adopt practices for the
+sake of quality and consistency.  Individuals do not always agree with team decisions.  My
+suggestion here is to try TDD for a reasonable amount of time, ask questions, give it a fair shake.
+If you really cannot find any value in TDD afterwards, then you should do what you can to
+leave that team.&lt;/p&gt;
+
+&lt;p&gt;While I'm sure they are out there, I've not met someone who has learned and practiced TDD
+from someone else that did not find value in it.  Having team members experienced with TDD
+is crucial here.  Simply following the TDD cycle will not result in good tests.  This takes
+time and experience.&lt;/p&gt;
+
+&lt;h3&gt;What TDD is &lt;em&gt;NOT&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;These are a collection of myths and strawmen about TDD.  They come up from time to time
+in various forms.  None of them present a reason to ignore the practice.&lt;/p&gt;
+
+&lt;h4&gt;A means of changing software with zero impact.&lt;/h4&gt;
+
+&lt;p&gt;High automated test coverage with good unit tests reduces the delay of some feedback
+regarding the impact of changes.  Writing tests first encourages both high test
+coverage by ensuring the tests actually get written.  It also forces the developer to
+think about clients of the code before writing the code which helps reduce coupling.
+Higher coupling, by its nature, increases impact of changes so reducing this helps
+as well.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately nothing can remove the impact itself.  The impact of changing software fans
+out along many different axis, only some of which are even partially covered by automated
+testing.&lt;/p&gt;
+
+&lt;h4&gt;A practice that yields benefits when followed blindly&lt;/h4&gt;
+
+&lt;p&gt;Unit tests can be a source of problems.  Test suites that are full of brittle tests which
+are just reverse implementations of the actual code provide no benefit.  Tests which take
+so long to run that they only get executed once a day or once a week aren't helping you reduce
+delays in feedback.  Both of these can arise from a team practicing TDD without reason.&lt;/p&gt;
+
+&lt;p&gt;This point is actually quite obvious.  After all, why would you follow any practice blindly?&lt;/p&gt;
+
+&lt;p&gt;Dictating that a developer practice TDD when that developer isn't convinced of any reason to
+do so will result in exactly that.  If your team isn't convinced of the benefits of any practice
+that it employs then you have a very serious problem.  That is the problem that should be addressed
+first.  Doing otherwise is a crucial mistake.&lt;/p&gt;
+
+&lt;h4&gt;An end&lt;/h4&gt;
+
+&lt;p&gt;The practice of TDD itself is not a benefit.  If you can achieve the benefits that TDD
+provides without the practice then there's no reason to employ the practice.  There are
+also scenarios where you do not need the benefits that TDD provides.&lt;/p&gt;
+
+&lt;h3&gt;But WHY does it matter if you write the tests FIRST?&lt;/h3&gt;
+
+&lt;p&gt;Frequently asked, seldom answered clearly.&lt;/p&gt;
+
+&lt;p&gt;If you do not practice TDD then the idea of writing tests before writing code may sound absurd.
+Why on earth would you do that?  I'm used to writing CODE first!  This is amplified by the fact that
+we (humans) are really bad at estimating the time-cost of things we don't do regularly.  Ok ok, I'm
+rambling without answering the question.  Why write tests first?&lt;/p&gt;
+
+&lt;p&gt;Writing tests first yields benefits that writing tests after does not.&lt;/p&gt;
+
+&lt;p&gt;Those benefits are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Better test coverage.  I'm human, I will inevitably fail to cover branches of code with tests
+if I write them after the fact.  I am less likely to do this with the TDD cycle.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I end up thinking more about the code I'm going to write before I write it.  The reason this is good
+is that once code is written and working then I'm less likely to change it.  Code that hasn't been
+written is cheaper to change than code that has.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I know immediately if the code is difficult to test and can evaluate whether or not this is incidental
+or inherent difficulty.  This relates to the previous point but is more specific.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;I and many others have found TDD to be an extremely useful practice.  It helps ensure high test coverage,
+it provides you with early smells about bad design.  Writing tests first feels foreign and this makes us
+feel like it's silly and could only work for the trivial examples you see in books and screencasts.  This
+feeling is WRONG.  I have been on large (30+ developer), medium and small teams which have employed TDD
+successfully.  Our code coverage was always high (85% is the worst coverage number I recall, usually higher
+than 90%).  TDD &lt;em&gt;ONLY&lt;/em&gt; works when it is employed thoughtfully with intent.  It WILL be a net loss on productivity
+otherwise.  TDD is not a silver bullet, a dogma or an end.  TDD is simply a useful practice.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2011/08/17/scala-ruby-rosetta</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2011/08/17/scala-ruby-rosetta.html"/>
+    <title>Scala and Ruby Rosetta Stone</title>
+    <updated>2011-08-17T00:00:00-04:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;I write a lot of Ruby at work and Scala in my spare time.
+I thought others who know one language but not the other
+might find a rosetta stone for the two languages useful.&lt;/p&gt;
+
+&lt;p&gt;For a more thorough rosetta stone for a variety of languages check
+out &lt;a href=&quot;http://rosettacode.org/wiki/Main_Page&quot;&gt;Rosetta Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The scope of each example is short so that it is easier to jump from
+one language to the other to compare specifics.  There are a lot more
+things you can do in each of these categories in both languages.  However,
+if there are other examples you think should be added then fork the gist in
+question and let me know about it in the comments.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#classes&quot;&gt;Classes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#mixins&quot;&gt;Mixins&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#collections&quot;&gt;Collections&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#hashmaps&quot;&gt;Hash maps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#switches&quot;&gt;Case statements and pattern matching&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;a name=&quot;classes&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Classes&lt;/h2&gt;
+
+&lt;p&gt;Here are a few examples of how you might define some basic classes in
+each language.  You can see here that Scala manages to be a bit more
+concise than Ruby.&lt;/p&gt;
+
+&lt;h4&gt;Ruby&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1153103.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;h4&gt;Scala&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1153076.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;&lt;a name=&quot;mixins&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Mixins&lt;/h2&gt;
+
+&lt;p&gt;Both Ruby and Scala support the idea of &lt;a href=&quot;http://en.wikipedia.org/wiki/Mixin&quot;&gt;Mixins&lt;/a&gt;.  They are known as modules and traits in Ruby
+and Scala respectively.&lt;/p&gt;
+
+&lt;p&gt;The examples below are mixins that specialize the results of an existing method on the target class.
+Classic examples of this are &lt;a href=&quot;http://www.ruby-doc.org/core/classes/Enumerable.html&quot;&gt;Enumerable&lt;/a&gt; in Ruby, and &lt;a href=&quot;http://www.scala-lang.org/api/current/index.html#scala.collection.Seq&quot;&gt;Seq&lt;/a&gt; in Scala.  Each of these depend
+on one or more methods in their target class.  Since Scala is statically typed the trait must specify
+something about the class it will be mixed in to.  You can do this with both nominal (named) types and
+structural types (similar to duck typing).  I show both of these in the Scala example below.&lt;/p&gt;
+
+&lt;p&gt;Lastly, the Ruby example depends on &lt;a href=&quot;http://rails.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Array/Grouping.html#M000833&quot;&gt;in_groups_of&lt;/a&gt; which comes from ActiveSupport (part of Rails).&lt;/p&gt;
+
+&lt;h4&gt;Ruby modules&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1159939.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;h4&gt;Scala traits&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1159921.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;a name=&quot;collections&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Collections&lt;/h2&gt;
+
+&lt;p&gt;Below are a few of the things you can do with collections in each language.  Scala has a bit more
+flexibility here when it comes to allowing you to pick the kind of performance characteristics you
+want.  However, when in doubt, just use an IndexedSeq.&lt;/p&gt;
+
+&lt;p&gt;Scala also provides mutable and immutable versions of their collections.  Ruby collections are mutable
+but that doesn't mean that each of the methods on a Ruby array will mutate the array.  &lt;a href=&quot;http://www.ruby-doc.org/core/classes/Enumerable.html#M001491&quot;&gt;Enumerable#map&lt;/a&gt;, for
+instance will return a new array.  The convention in Ruby is that if a method ends in ! then it will mutate the
+object and otherwise it will not.  This convention is mostly observed in the core and standard libraries, but not
+entirely.  &lt;a href=&quot;http://www.ruby-doc.org/core/classes/Array.html#M000255&quot;&gt;Array#delete&lt;/a&gt;, for instance, is a Ruby core library method that mutates an object but does not
+end with a !.&lt;/p&gt;
+
+&lt;h4&gt;Ruby collections&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1159992.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;h4&gt;Scala collections&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1159981.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;a name=&quot;hashmaps&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Hash maps&lt;/h2&gt;
+
+&lt;p&gt;Each languages' core library comes with a hash map implementation.  Ruby calls theirs Hash and Scala theirs
+Map.  Great.&lt;/p&gt;
+
+&lt;p&gt;Ruby has hash literals which is convenient.  Scala's flexible syntax allows a really close approximation
+of hash literals, syntactically, without the addition of specialized syntax for them.&lt;/p&gt;
+
+&lt;h4&gt;Ruby hashes&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1160016.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;h4&gt;Scala maps&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1160045.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;a name=&quot;switches&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Case statements and pattern matching&lt;/h2&gt;
+
+&lt;p&gt;I don't care much for mentioning case statements in Ruby on their own.  They are, however, the closest
+corollary to &lt;a href=&quot;http://kerflyn.wordpress.com/2011/02/14/playing-with-scalas-pattern-matching/&quot;&gt;pattern matching&lt;/a&gt; in Scala.  Scala's pattern matching support is very powerful.  I'll present
+how you would accomplish some similar tasks in each and then show a few more powerful pattern matching
+examples in Scala.&lt;/p&gt;
+
+&lt;h4&gt;Ruby case statements&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1160828.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;h4&gt;Scala pattern matching&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/1161420.js&quot;&gt;&lt;/script&gt;
+
+
+
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2011/05/04/robospecs</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2011/05/04/robospecs.html"/>
+    <title>RoboSpecs - Android testing with Scala</title>
+    <updated>2011-05-04T00:00:00-04:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;I recently published &lt;a href=&quot;https://github.com/jbrechtel/robospecs&quot;&gt;Robospecs&lt;/a&gt;.  Robospecs helps you write Android applications.&lt;/p&gt;
+
+&lt;p&gt;Robospecs doesn't really do much itself.  The real work is done by
+&lt;a href=&quot;http://pivotal.github.com/robolectric&quot;&gt;Robolectric&lt;/a&gt; and &lt;a href=&quot;http://specs2.org&quot;&gt;Specs2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Robolectric&lt;/h3&gt;
+
+&lt;p&gt;Robolectric lets you TDD your Android applications by giving you a way to run Android unit tests outside of an Android
+emulator.  Normal Android &quot;unit&quot; tests have to be executed inside an emulator.  The android.jar files that Google provides
+as part of the Android SDK cannot be used to actually execute code such as unit tests.  Every object's constructor merely
+throws an exception.  Google suggests you write all of your tests using their test case which executes your code inside of
+an emulator inside a real Android environment.  This is appropriate for some levels of testing, but makes a TDD workflow
+quite onerous.&lt;/p&gt;
+
+&lt;p&gt;Robolectric provides an implementation of much of the Android components you would normally interact with and always a
+means to add additional implementations yourself for Android classes which aren't covered.  Robolectric also sets up an
+Android environment so your code can inflate layouts and access other resources.  See
+&lt;a href=&quot;http://pivotal.github.com/robolectric&quot;&gt;pivotal.github.com/robolectric&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;h3&gt;Specs2&lt;/h3&gt;
+
+&lt;p&gt;Specs2 is a great testing framework for Scala.  Specs2 provides a elegant DSL for writing tests and assertions.  It's a
+fantastic framework to use to test either Scala or Java code.  See &lt;a href=&quot;http://specs2.org&quot;&gt;specs2.org&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;h3&gt;Robospecs&lt;/h3&gt;
+
+&lt;p&gt;What Robospecs does is bridge the gap between Robolectric and Specs2.  Out of the box Robolectric provides support for
+JUnit via a custom JUnitRunner.  During test runtime this JUnitRunner executes your tests using a custom Robolectric
+class loader.  Robospecs provides a trait which you can mix into your specs that performs the same function.  Robospecs
+is very non-invasive to your existing specs.  Check out the project page at &lt;a href=&quot;http://github.com/jbrechtel/robospecs&quot;&gt;GitHub&lt;/a&gt;
+for more information.&lt;/p&gt;
+
+&lt;h3&gt;Example Project&lt;/h3&gt;
+
+&lt;p&gt;You can find a working, albeit very simple, sample Android project on GitHub at
+&lt;a href=&quot;https://github.com/jbrechtel/robospecs_example&quot;&gt;https://github.com/jbrechtel/robospecs_example&lt;/a&gt;.  This project uses
+&lt;a href=&quot;http://code.google.com/p/simple-build-tool/&quot;&gt;SBT&lt;/a&gt; to build.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2011/03/19/xcode-thoughts</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2011/03/19/xcode-thoughts.html"/>
+    <title>XCode - Some thoughts</title>
+    <updated>2011-03-19T00:00:00-04:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;Warning:  This is a bit of a rant.  It's mostly intended to be therapeutic for myself.&lt;/p&gt;
+
+&lt;p&gt;Our team has recently started down the road of writing a native iPhone app.
+I'm very happy about this.  I've been wanting to have write an iPhone app for
+some time and haven't had the opportunity to.  Having done a fair amount of Android
+work and really enjoyed the platform's API I wanted a first hand account of how iPhone
+compared to that.&lt;/p&gt;
+
+&lt;p&gt;So far, I have no major issues with Cocoa applications on iOS.  Building the UI is, for
+the most part, much more straight forward here.  Apple has taken great care to make it easy
+to build pretty UIs on iPhone.  This shows.  However, I haven't yet written enough code yet to
+compare the two platforms SDKs.  One reason I haven't written enough is XCode....&lt;/p&gt;
+
+&lt;h3&gt;XCode 4&lt;/h3&gt;
+
+&lt;p&gt;So, fate would have it that XCode 4 got released a few days before we started to play
+our iPhone app cards.  On the surface, this seemed opportune because it's supposedly a big improvement
+over XCode 3.  Unfortunately we quickly learned that also means that most of
+the help we could find on the internet for common tasks were not applicable to XCode 4.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt; Zombies (AKA: Night of the living option key) &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Very soon into our Objective-C foray we discovered we were calling methods on an object
+whose memory had been freed.  In hindsight the solution is obvious:  retain the object then
+release it once we're done with it.  However we wanted a general way to combat this problem so
+we quickly came upon the idea of turning on Zombies.  Zombies are a neat feature of Objective-C
+that allow you to find out exactly where you're talking to objects that have been freed.  This
+is super useful to a budding Objective-C developer.&lt;/p&gt;
+
+&lt;p&gt;How do you turn them on?  You simply set the NSZombieEnabled environment variable to YES.&lt;/p&gt;
+
+&lt;p&gt;That sounds easy enough, environment variables are pretty straight forward and it can't be THAT
+different from XCode 3 to 4 can it?&lt;/p&gt;
+
+&lt;p&gt;We spent a few minutes hunting for the word 'Environment' in the GUI to no avail.
+We googled for this issue and found almost nothing but directions for doing it in XCode 3.x.
+Then we finally found this post on StackOverflow.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/2190227/nszombieenabled-in-latest-xcode&quot;&gt;http://stackoverflow.com/questions/2190227/nszombieenabled-in-latest-xcode&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Already frustrated, imagine our reaction when the instructions say 'Click the Product Menu and HOLD DOWN THE OPTION KEY'.&lt;/p&gt;
+
+&lt;p&gt;Granted we later found a more direct way to get to the menu in question, but from this changed our
+opinion of XCode's UI from 'frustrating' to 'comically bad'.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Schemes, Configurations, and Targets, oh my! &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This morass of concepts for building a project is maddening.  Apple could really take some
+direction from the Ruby world here and adopt/create a humane build configuration tool like Rake.&lt;/p&gt;
+
+&lt;p&gt;Building projects does not require this much complexity.  Adding this Scheme concept which is only
+configurable in the GUI does developers a disservice.  GUIs are fine when you're manipulating graphical
+things, but they are outright hostile to editing text.  Schemes are essentially a grouping of targets and
+build configurations, which themselves comprise text settings.  If Apple wants to provide some GUI editor
+for these settings, then fine, but at least separate them into different files that are each human editable
+and mergeable by my VCS tool!&lt;/p&gt;
+
+&lt;p&gt;Is configuring the build for an application really this hard?
+I've done .NET, Java, Scala, and Ruby projects in the past and we've never needed this many concepts.
+We generally have a single build, with some customizations for different environments
+(development, testing, production, etc..).  Introducing complications beyond this has never yielded any fruit
+in my experience.&lt;/p&gt;
+
+&lt;p&gt;Now, I understand that there's a fundamental difference between XCode projects and the others that I mentioned.
+XCode projects may target a variety of architectures while the others I mentioned all run in a VM.  However, that's
+the only fundamental difference from what I can tell and it's pretty easy to address with a build flag or an environment
+variable, IMHO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Merging &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Maybe I'm missing something, but XCode's project config file presents a really annoying hurdle to collaboration.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Any change to it by multiple people causes merge conflicts&lt;/li&gt;
+&lt;li&gt;It occasionally changes without you explicitly changing any project settings&lt;/li&gt;
+&lt;li&gt;It's not something you should attempt to merge by hand&lt;/li&gt;
+&lt;li&gt;XCode crashes immediately when the file becomes invalid (say, you do a &quot;git pull&quot; and there's a merge conflict)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;I don't know if these problems have always existed in XCode or if they're new to XCode 4.  Hopefully they're new to
+XCode 4 and Apple will fix them in an update.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;xcconfig files, some hope &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks to the super useful (and not at all obvious) info presented by Rob Napier &lt;a href=&quot;http://robnapier.net/blog/build-system-1-build-panel-360&quot;&gt;here&lt;/a&gt;
+we were able to abandon the terrible XCode project file for most of our build settings in favor of
+configuration specific xcconfig files.  This improved our situation a fair amount.  Now there are fewer settings
+in the amorphous blob that is the XCode project file.&lt;/p&gt;
+
+&lt;p&gt;xcconfig files let you specify build settings in a simple NAME=VALUE format.  You can associate them to
+specific build configurations (Release, Debug, etc...).  To do so in XCode 4:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Click on your project in the Project Navigator (this should be the root of the project tree)&lt;/li&gt;
+&lt;li&gt;Select your project in the resulting window&lt;/li&gt;
+&lt;li&gt;Expand the desired configuration&lt;/li&gt;
+&lt;li&gt;There should be a dropdown showing all of the xcconfig files in your project.  Select the appropriate one.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;strong&gt;XCode 4 is pretty &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;One final thing that I actually like about XCode 4 is that it's pretty.  Apple puts nice graphical
+touches on their products and XCode 4 is no exception.  I appreciate the smooth and polished animations
+for things like highlighting [ ]'s as you type them.  The transition effect used for displaying the auto-complete
+is also quite pleasant.  While I can't put my finger on a specific benefit of these features I must say that I do like them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;No draggable and dockable tool windows??&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I really like the way XCode handles tool windows.  There are 3 of them (the ones on the left, bottom and right ).
+You always know where they are and hiding/showing them is done using a few easy to see buttons on the toolbar.
+I think Apple really got this right whereas most other IDEs seem to allow you infinite flexibility in this area
+and that tends to hurt.  You'll never wonder where that stupid tool window went in XCode or why the hell it's
+docked on the top of the screen instead of the middle.  +1 XCode.&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;While I do dislike XCode, it isn't the worst thing in the world and it even has some positives over others.
+I've tried worse IDEs (pretty much anything built on top of Eclipse that isn't just plain Eclipse),
+but I've also used much better ones that enabled rather than stifled modern development practices.
+In the end I can live with XCode and appreciate some of its niceties.  However, I find it unfortunate that
+XCode lacks some of the things I've come to find really valuable.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2011/02/18/scala-android-intellij-win-part-3</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2011/02/18/scala-android-intellij-win-part-3.html"/>
+    <title>Building Android Apps with Scala - IntelliJ</title>
+    <updated>2011-02-18T00:00:00-05:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;&lt;strong&gt;note to the reader&lt;/strong&gt; This is the third in a series of posts about getting
+started with Scala, Android and IntelliJ.  The content here assumes that you
+already have a working install of IntelliJ and the Android SDK plus a project
+created using simple-build-tool.  If you don't have these things then please
+check out &lt;a href=&quot;http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-1-prerequisites&quot;&gt;Part 1 - Prerequisites&lt;/a&gt; and &lt;a href=&quot;http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-2-simple-build-tool&quot;&gt;Part 2 - simple-build-tool&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h2&gt;IntelliJ Plugins&lt;/h2&gt;
+
+&lt;p&gt;Before we get started we need to install some IntelliJ plugins.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In IntelliJ click File -&gt; Settings&lt;/li&gt;
+&lt;li&gt;Scroll down to Plugins&lt;/li&gt;
+&lt;li&gt;Click the 'Available' tab&lt;/li&gt;
+&lt;li&gt;Install the Scala, Sbt, and Android plugins&lt;/li&gt;
+&lt;li&gt;Right click each plugin and select 'Download and Install'&lt;/li&gt;
+&lt;li&gt;Allow IntelliJ to restart after installing the plugins&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;After the plugins are installed we have to configure the Sbt plugin so that
+it can find the Sbt jar file.  Go to File -&gt; Settings -&gt; Sbt to do this.&lt;/p&gt;
+
+&lt;h2&gt;Creating the IntelliJ project file&lt;/h2&gt;
+
+&lt;p&gt;Unfortunately, this part of the process requires a bit of hackery.  My
+intent is to modify the Android Sbt plugin to create projects that are more
+suitable from the outset and combine that the work done in the &lt;a href=&quot;https://github.com/mpeltonen/sbt-idea&quot;&gt;sbt-idea&lt;/a&gt;
+plugin to automate this entire process.  Until someone does that, these are
+the steps required.&lt;/p&gt;
+
+&lt;p&gt;Also, as I said in &lt;a href=&quot;http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-2-simple-build-tool&quot;&gt;Part 2&lt;/a&gt;, nothing we do here will prevent us from
+building, packaging, deploying or testing our project using sbt from the
+command line.  You should always be able to do that regardless of the IDE you
+are using.&lt;/p&gt;
+
+&lt;h4&gt;Now, let's fire up IntelliJ and create this project.&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create Java project from existing sources&lt;/li&gt;
+&lt;li&gt;Enter a name for the project&lt;/li&gt;
+&lt;li&gt;In the 'Project files location' field, enter the path to the root of the project.
+
+&lt;ul&gt;
+&lt;li&gt;This should be $project_path&lt;/li&gt;
+&lt;li&gt;IntelliJ should find source files in $project_path/src/main/java&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Click ‘Next’ and you should see the Libraries list
+
+&lt;ul&gt;
+&lt;li&gt;There should be lots of libraries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Find the library named ‘lib’ and rename it to ‘scala_2.8.1’&lt;/li&gt;
+&lt;li&gt;Click ‘Next’ and you should the Modules list
+
+&lt;ul&gt;
+&lt;li&gt;There should be one module, named Main.  Rename to $project_name&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Click ‘Next’ and you should see the Facets list
+
+&lt;ul&gt;
+&lt;li&gt;There should be one facet, Android&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Click ‘Finish’&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Great!  At this point, we’ve got some IntelliJ project files created which
+reference the generated Java source files for the project we created in &lt;a href=&quot;http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-2-simple-build-tool&quot;&gt;Part 2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now we need to change a few things.  IntelliJ still doesn’t know about our
+Scala source files and the IntelliJ Android plugin doesn’t know what Sbt is
+doing.  Also, a meaningful ‘Run’ configuration from the IDE is nice.&lt;/p&gt;
+
+&lt;h2&gt;Hacking up the IntelliJ project&lt;/h2&gt;
+
+&lt;h4&gt;Let’s get our source tree in order first.&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Right click on 'Scala' folder.&lt;/li&gt;
+&lt;li&gt;Mark directory as Source Root&lt;/li&gt;
+&lt;li&gt;Right click on Scala and add package, 'com.test.myproject'&lt;/li&gt;
+&lt;li&gt;Rename Activity.scala to MainActivity.scala  (we're trying to make IntelliJ happy)&lt;/li&gt;
+&lt;li&gt;put MainActivity.scala in com.test.myproject package just created&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Configure the IntelliJ Android plugin&lt;/h4&gt;
+
+&lt;p&gt;The Android facet expects some things to be in different places&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Right Click on the project in the project tab and select Open Module Settings&lt;/li&gt;
+&lt;li&gt;Select Facets&lt;/li&gt;
+&lt;li&gt;Select Android&lt;/li&gt;
+&lt;li&gt;Select Compiler&lt;/li&gt;
+&lt;li&gt;In the section 'AAPT Compiler'&lt;/li&gt;
+&lt;li&gt;Change '$project_path/src/main/gen'  to '$project_path/src/main/java'&lt;/li&gt;
+&lt;li&gt;In the section 'Android Packaging Compiler'&lt;/li&gt;
+&lt;li&gt;Change APK Path to '$project_path/target/scala_2.8.1/myproject_2.8.1-0.1.apk'&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Also in the project settings make SURE that the Scala dependecy is set to to
+‘Provided’ (NOT compile, test or runtime) so that if you ever let IntelliJ
+(instead of Sbt) build the project then it won't also try to generate
+Dalvik bytecode for the Scala library.  The Scala library contains classes
+which have more functions in them than the Dalvik bytecode conversion tool can handle.&lt;/p&gt;
+
+&lt;p&gt;This issue is circumvented by the Sbt build process because Sbt uses ProGuard to
+remove unused classes and functions from the Scala library before converting it to
+Dalvik bytecode.&lt;/p&gt;
+
+&lt;p&gt;Now, let's show IntelliJ how to build our project&lt;/p&gt;
+
+&lt;h4&gt;(Adding a Run configuration that uses Sbt)&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In the IntelliJ menu, click 'Run'&lt;/li&gt;
+&lt;li&gt;Click 'Edit Configurations'&lt;/li&gt;
+&lt;li&gt;Click the + in the top left and select Android application&lt;/li&gt;
+&lt;li&gt;Enter ‘DeployRun’ in the Name textbox where it says 'Unnamed'&lt;/li&gt;
+&lt;li&gt;In the Module drop down select your project.  (There should be only one item in the list)&lt;/li&gt;
+&lt;li&gt;Uncheck 'Make'&lt;/li&gt;
+&lt;li&gt;Check 'Run Sbt Action'&lt;/li&gt;
+&lt;li&gt;Click the ellipsis next to 'Run Sbt Action' and in the dropdown list/text box type 'package-debug'&lt;/li&gt;
+&lt;li&gt;Click OK to close that dialog&lt;/li&gt;
+&lt;li&gt;Click OK to close the Run Configuration dialog&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;You can now rebuild and run your project from IntelliJ by executing the DeployRun configuration.&lt;/h4&gt;
+
+&lt;p&gt;You can setup other build configurations to execute additional Sbt targets.&lt;/p&gt;
+
+&lt;p&gt;Next time we’ll cover running your tests with the awesome &lt;a href=&quot;http://www.scalatest.org/&quot;&gt;ScalaTest&lt;/a&gt; framework
+from inside IntelliJ.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2011/02/03/scala-android-intellij-win-part-2-simple-build-tool</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2011/02/03/scala-android-intellij-win-part-2-simple-build-tool.html"/>
+    <title>Building Android Apps with Scala - simple-build-tool</title>
+    <updated>2011-02-03T00:00:00-05:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;This is part 2 in my series on getting started with Android development in
+Scala using IntelliJ.  If you haven't already then check out &lt;a href=&quot;http://nevercertain.com/index.php/2011/02/scala-android-intellij-win-part-1-prerequisites/&quot;&gt;Part 1 -
+Prerequisites&lt;/a&gt;.  This post will cover getting your project created and
+using simple-build-tool to perform various tasks such as compiling, testing,
+packaging, and getting your app on a device.  By the end of this post you'll
+be able to deploy your app to an Android device or package it for the market
+each with a single command.&lt;/p&gt;
+
+&lt;h2&gt;A quick aside before we begin&lt;/h2&gt;
+
+&lt;p&gt;This part of the series purposefully leaves out IntelliJ.  I strongly believe
+that a GUI tool should not be required to compile, test, or deploy your code.
+My principal reason for this is so that I am always able to practice
+&lt;a href=&quot;http://martinfowler.com/articles/continuousIntegration.html&quot;&gt;continuous integration&lt;/a&gt;.  Requiring a GUI to build my software would
+prevent me from automating that process in any manageable way.  The secondary
+reason for eschewing dependency on a GUI is so that I am free to pick
+whichever GUI or plain editor I want with as little hassle as possible.  You
+can apply everything in this post whether your IDE/editor is &lt;a href=&quot;http://www.jetbrains.com/idea/&quot;&gt;IntelliJ&lt;/a&gt;,
+&lt;a href=&quot;http://www.eclipse.org/&quot;&gt;Eclipse&lt;/a&gt;, &lt;a href=&quot;http://www.vim.org/&quot;&gt;Vim&lt;/a&gt;, &lt;a href=&quot;http://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt;, or &lt;insert your favorite editor here&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Creating our project&lt;/h2&gt;
+
+&lt;p&gt;To create a new Android project, we’ll use the create_project script from
+jberkel’s android-plugin.  This will create the initial &lt;a href=&quot;http://code.google.com/p/simple-build-tool/&quot;&gt;simple-build-tool&lt;/a&gt;
+project structure including our project and plugins files. The create_project
+script has two required arguments: &lt;name&gt; and &lt;pkg&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;name: The name of the project and ultimately the name of the directory where the project will reside.&lt;/li&gt;
+&lt;li&gt;pkg: The Java package name to be used for our Android project.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Let’s call our project awesomepad and the package com.kickass.awesomepad
+Execute the following commands from our OS’s command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd $root
+./opt/android-plugin/script/create_project awesomepad com.kickass.awesomepad
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Now that we've got an Sbt project setup.  Let’s update the project dependencies
+next.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd $root/awesomepad
+sbt update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(Note:  If the ‘sbt’ command is not found then please follow the instructions
+on the Sbt wiki &lt;a href=&quot;http://code.google.com/p/simple-build-tool/wiki/Setup&quot;&gt;Setup &lt;/a&gt;page first) At this point, it would be prudent (but
+not required) to familiarize yourself with how Sbt works.  The
+&lt;a href=&quot;http://code.google.com/p/simple-build-tool/wiki/BuildConfiguration&quot;&gt;BuildConfiguration&lt;/a&gt; page of Sbt’s wiki  is a good place to start. For the
+rest of this post, all commands should be executed from the $root/awesomepad
+directory.&lt;/p&gt;
+
+&lt;h2&gt;Using simple-build-tool&lt;/h2&gt;
+
+&lt;p&gt;In this post I’ll often tell you to execute an Sbt task from a shell like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sbt &amp;lt;task name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That’s not the optimal way to interact with Sbt while we're
+actually working.  The Sbt console provides a shell from which we can launch
+tasks.  If we use the Sbt console then we won’t have to wait for the JVM or
+Scala compiler to start each time we execute a task. To start the Sbt
+console just execute ‘sbt’ by itself from the project root.  Once inside
+the console we can start a task by just typing the task name and hitting
+enter. Also, check out &lt;a href=&quot;http://code.google.com/p/simple-build-tool/wiki/TriggeredExecution&quot;&gt;TriggeredExecution&lt;/a&gt;.  Very cool. Ok, now for more
+Android stuff&lt;/p&gt;
+
+&lt;h2&gt;Some Android specific simple-build-tool tasks&lt;/h2&gt;
+
+&lt;p&gt;jberkel’s android-plugin comes with several very handy tasks to help with
+Android development.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;package-debug - Builds a debug APK that we can deploy to our phone.&lt;/li&gt;
+&lt;li&gt;start-emulator - Starts the app on an emulator, if one is running.&lt;/li&gt;
+&lt;li&gt;reinstall-emulator - Reinstalls the app on an emulator, if running.&lt;/li&gt;
+&lt;li&gt;reinstall-device - Reinstalls the app on an attached Android device.&lt;/li&gt;
+&lt;li&gt;start-device - Starts the app’s default activity on an attached Android device.&lt;/li&gt;
+&lt;li&gt;sign-release  - Builds a signed APK that is suitable for publishing to the market.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Here are some non-Android specific Sbt tasks that are also good to know&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;clean - Deletes any compiled files and other artifacts.&lt;/li&gt;
+&lt;li&gt;compile - Compiles the project&lt;/li&gt;
+&lt;li&gt;test-compile - Compiles the tests&lt;/li&gt;
+&lt;li&gt;test - Executes the project's tests&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;When running all of the above tasks Sbt will automatically recompile if
+relevant source files have changed.  However, it doesn’t know that changes to
+AndroidManifest.xml should cause a repackaging so when we change that file
+we'll often want to perform another package-debug or clean.&lt;/p&gt;
+
+&lt;h2&gt;Deploying to our Android device&lt;/h2&gt;
+
+&lt;p&gt;To deploy the project to a device just run the start-device task while a
+device is connected over USB.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sbt start-device
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will cause the project to be compiled, packaged, installed on an attached
+device and then its default activity started.  If we were writing a widget,
+live wallpaper or something else without a default activity then we'd just
+use the reinstall-device task instead.&lt;/p&gt;
+
+&lt;h4&gt;When this doesn’t work...&lt;/h4&gt;
+
+&lt;p&gt;On Linux commands that interact with attached Android devices may report the following error&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;**[error] error: insufficient permissions for device**
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This means our Android Debug Bridge (adb) daemon does not have the right
+permissions.  There are two ways to fix this.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Option 1)&lt;/strong&gt;
+&lt;em&gt;We can Google “adb udev insufficient permissions” and find the correct udev rules to possibly
+make this work then update our udev rules and reboot.  Find out something is
+wrong with our freshly updated udev rules and repeat the cycle until we give up and select
+Option 2.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Option 2)&lt;/strong&gt;
+&lt;em&gt;Just run adb as root.  Execute the following commands&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;  $root/opt/android-sdk/platform-tools/adb kill-server
+  sudo $root/opt/android-sdk/platform-tools/adb start-server&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;IMHO it's best to execute the second line during boot.&lt;/p&gt;
+
+&lt;p&gt;To do this on Ubuntu just put this in /etc/rc.local.  Everything in rc.local runs as root so 'sudo' isn't needed there.&lt;/p&gt;
+
+&lt;p&gt;Once adb is running with proper permissions then the start-device and reinstall-device tasks should work fine.&lt;/p&gt;
+
+&lt;h2&gt;Running Tests&lt;/h2&gt;
+
+&lt;p&gt;At this point the project has two separate directories for tests.  One is an
+Android test project used for functional testing that can be found in
+$root/awesomepad/src/tests.  The other is a ScalaTest project for unit testing
+that is located at $root/awesomepad/src/tests.  I’m going to cover running the
+unit tests and skip the Android test project for another post where I’ll cover
+Android testing in depth. To run the unit tests just run the test Sbt task.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sbt test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will cause the project to be compiled and the ScalaTest specs in
+$root/awesomepad/src/tests to be executed with a command line test runner.
+This test runner has rather crude output with very long stack traces when
+things fail.  The formatting isn’t as nice as something like &lt;a href=&quot;http://rspec.info/&quot;&gt;RSpec&lt;/a&gt;, but
+don’t worry because it will get better whenever we’re running these in
+IntelliJ.&lt;/p&gt;
+
+&lt;h2&gt;Packaging for the Market&lt;/h2&gt;
+
+&lt;p&gt;Preparing the app for the market is pretty straight forward.  Before we
+actually release the app on the market it's important to should read the &lt;a href=&quot;http://developer.android.com/guide/publishing/preparing.html&quot;&gt;Preparing to
+Publish&lt;/a&gt; checklist over at the Android Developer site. The only step we’re
+concerned with right now is: &lt;a href=&quot;http://developer.android.com/guide/publishing/app-signing.html#cert&quot;&gt;Obtain a suitable private key&lt;/a&gt;.  If you
+don’t have a private key already then follow those instructions until you get
+to step “2. Compile the application in release mode”. At this point you should
+have .keystore file.  We’ll assume the name is awesomepad.keystore. Now we
+need to tell our Sbt project about this file so that the Sbt tasks for
+signing the app know where to find it.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Copy awesomepad.keystore to $root/awesomepad/awesomepad.keystore&lt;/li&gt;
+&lt;li&gt;Edit $root/awesomepad/project/build/Awesomepad.scala&lt;/li&gt;
+&lt;li&gt;Inside MainProject, override the keystore method to return “awesomepad.keystore”
+
+&lt;ul&gt;
+&lt;li&gt;override def keystore = “awesomepad.keystore”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Set the keyalias val equal to whatever keyalias you used when creating the key earlier
+
+&lt;ul&gt;
+&lt;li&gt;val keyalias = “myKeyAlias”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note: My instructions here run somewhat counter to the conventions provided
+by the android-plugin.  By default the AndroidProject sbt plugin, specifically
+the MarketPublish trait, assumes that the keystore is a file in our home
+directory name “.keystore”.  This way there's can have one keystore for all of
+projects and our project file only needs to specify the key alias we
+want to use.&lt;/em&gt; &lt;em&gt;This is all well and good, however it means that our project
+source tree does not contain everything we need to release or update our app in
+the market.  I’d rather everything be in a single source tree so that I have
+less to keep up with.  You say potato, I say potato...well you get the idea.&lt;/em&gt;
+Now that we’ve gotten a private key and told our Sbt project about it we
+can run the sign-release task and Sbt will create an apk signed with that key.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sbt sign-release
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After running that command we'll be prompted for the keystore password.
+Enter the password for the keystore and then a signed apk is waiting for us in
+$root/awesomepad/target/scala_2.8.1.&lt;/p&gt;
+
+&lt;p&gt;That’s it for this time, check back later
+for part 3 where I’ll talk about setting up IntelliJ to use all of these
+wonderful Sbt tasks and then finally part 4 where we will use IntelliJ’s
+test runner to run our project’s unit tests.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2011/02/03/scala-android-intellij-win-part-1-prerequisites</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2011/02/03/scala-android-intellij-win-part-1-prerequisites.html"/>
+    <title>Building Android Apps with Scala - pre-requisites</title>
+    <updated>2011-02-03T00:00:00-05:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;This is the first in a series of blog posts about getting started with
+&lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android&lt;/a&gt;, &lt;a href=&quot;http://www.scala-lang.org/&quot;&gt;Scala&lt;/a&gt;, &lt;a href=&quot;http://www.jetbrains.com/idea/&quot;&gt;IntelliJ&lt;/a&gt; and &lt;a href=&quot;http://code.google.com/p/simple-build-tool/&quot;&gt;simple-build-tool&lt;/a&gt;.  Hopefully
+this will help people who are interested in building Android apps, but don't
+want to write Java get started.  Also, if you're already building Android
+apps, but would like a more expressive language while staying close to the
+metal then Scala is a great alternative to Java.  By the end of this series,
+you should be able to build, deploy and package your Scala Android apps both
+from the command line and IntelliJ. My primary development environment is
+Ubuntu Linux but I will provide &lt;strong&gt;platform specific instructions&lt;/strong&gt; where
+appropriate. These instructions assume that you have Java 1.6 installed and
+its environment variables setup. We'll be putting everything (except for
+IntelliJ on Windows and OSX) into the same directory on your system.  On my
+development machine that directory is /home/jbrechtel/opt.  Throughout this
+post I'll refer to this directory as $opt. I would suggest the following
+locations for $opt, by platform&lt;/p&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Linux&lt;/th&gt;
+        &lt;td&gt;
+        /home/username/opt
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;
+        OS X
+        &lt;/th&gt;
+        &lt;td&gt;
+        /Users/username/opt
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;
+        Windows
+        &lt;/th&gt;
+        &lt;td&gt;
+        C:\Users\username\opt
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;Ok, let's start with..&lt;/p&gt;
+
+&lt;h2&gt;Getting Scala&lt;/h2&gt;
+
+&lt;p&gt;Head over to&lt;a href=&quot;http://www.scala-lang.org/downloads&quot;&gt; http://www.scala-
+lang.org/downloads&lt;/a&gt; and download the package for your platform.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Extract the Scala package to $root/scala.&lt;/li&gt;
+&lt;li&gt;Set the SCALA_HOME environment variable to $root/scala
+
+&lt;ul&gt;
+&lt;li&gt;Linux: Add “export SCALA_HOME=$root/scala” to your .bash_profile&lt;/li&gt;
+&lt;li&gt;OS X: See &lt;a href=&quot;http://snipurl.com/apple_environment&quot;&gt;http://snipurl.com/apple_environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Windows: Start -&gt; Run -&gt; “setx SCALA_HOME=$root/scala”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Add $root/scala/bin to your system’s path&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Now, that’s it for Scala.  You should now be able to start a command prompt on
+your OS and type ‘scala’ to get a handy Scala REPL for testing things out.&lt;/p&gt;
+
+&lt;h2&gt;Getting IntelliJ IDEA&lt;/h2&gt;
+
+&lt;p&gt;Next we’ll get our IDE.  IntelliJ IDEA has pretty
+good Scala support though it’s not without its flaws as we’ll see throughout
+this series. First, point your browser at
+&lt;a href=&quot;http://www.jetbrains.com/idea/download/index.html&quot;&gt;http://www.jetbrains.com/idea/download/index.html&lt;/a&gt; and download IntelliJ
+for your platform.  As of version 10.0 the Community Edition (read: Free) of
+IntelliJ IDEA supports both Android and Scala development.  For great justice!
+Install the IntelliJ IDEA package.  For Windows and OSX, IntelliJ installs
+like a normal application which I presume you already know how to do. For
+those of you on Linux:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Extract the tar.gz for IntelliJ to $root/opt/idea&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;To launch IntelliJ just execute $root/opt/idea/bin/idea.sh&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;I suggest creating a menu shortcut in Gnome, KDE, or XFCE to the idea.sh
+script.  There are a number of IntelliJ icons in that bin folder which you can
+use for the menu icon.  The files are named idea_CE{16-128}.png.&lt;/p&gt;
+
+&lt;h2&gt;Getting the Android SDK&lt;/h2&gt;
+
+&lt;p&gt;Let’s go get the Android SDK.  Obviously we need this to build
+Android applications.  We’ll only be grabbing the Android 2.1 platform here,
+but the Android SDK manager makes the other platform versions easy to get and
+install. The Android SDK can be found here:&lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;http://developer.android.com/sdk/index.html&lt;/a&gt;.
+Download the package for your platform from that site.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note for Windows users:  It looks like Google
+has made things easier on you by providing an installer.  I’m not familiar
+with the installer, but it probably does everything you need it to do.
+However, the instructions below are written with the zip package in mind.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Extract the downloaded file to $root/opt/android-sdk&lt;/li&gt;
+&lt;li&gt;Set the ANDROID_SDK_HOME environment variable to $root/opt/android-sdk
+
+&lt;ul&gt;
+&lt;li&gt;See the ‘Getting Scala’ section above for instructions per platform.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Launch the Android SDK Manager
+
+&lt;ul&gt;
+&lt;li&gt;Linux: &lt;strong&gt;$root/opt/android-sdk/tools/android&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;OSX: &lt;strong&gt;$root/opt/android-sdk/tools/android&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Windows: &lt;strong&gt;$root/opt/android-sdk/SDK Manager.exe&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;The Android SDK Manager is used to download the various Android platforms and
+other third party addons such as the Google Maps SDK and the Samsung Galaxy
+Tab SDK.  For now we're just concerned with the Android 2.1 platform. Once the
+SDK Manager is running follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Click 'Available Packages'&lt;/li&gt;
+&lt;li&gt;Expand 'Android Repository'&lt;/li&gt;
+&lt;li&gt;Check the box that says 'Android SDK Tools, revision 7'&lt;/li&gt;
+&lt;li&gt;Click 'Install Selected'&lt;/li&gt;
+&lt;li&gt;Click 'Accept All' to accept all licenses&lt;/li&gt;
+&lt;li&gt;Click 'Install'&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Now the SDK Manager will download the Android 2.1 platform (also known as
+revision 7 or API Level 7 in Android parlance).  If you receive a prompt about
+ADB needing to be restarted then just click ‘Yes’.  Afterwards you can close
+any dialogs and the SDK Manager. Once that is complete, move on to the next
+section.&lt;/p&gt;
+
+&lt;h2&gt;simple-build-tool&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.jetbrains.com/idea/download/index.html&quot;&gt;simple-build-tool&lt;/a&gt; / SBT is a (as the name
+suggests) build tool for Scala.  It provides all the things you might expect
+from a modern build system such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;dependency management (both managed and unmanaged dependencies are supported)&lt;/li&gt;
+&lt;li&gt;a DSL (in Scala) for configuring your targets and other aspects of the project&lt;/li&gt;
+&lt;li&gt;testing integration&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;simple-build-tool has a few things that I consider killer features:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A console/REPL with your entire project at your fingertips.&lt;/li&gt;
+&lt;li&gt;Triggered task execution (e.g. run tests automatically when source changes)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Download SBT by going &lt;a href=&quot;http://code.google.com/p/simple-build-tool/&quot;&gt;http://code.google.com/p/simple-build-tool/&lt;/a&gt; then
+download the latest version in the ‘Downloads’ section on the right side of
+the page. SBT has really good instructions for getting started on their
+project site.  Check it out &lt;a href=&quot;http://code.google.com/p/simple-build-tool/wiki/Setup&quot;&gt;http://code.google.com/p/simple-build-
+tool/wiki/Setup&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;jberkel’s android-plugin for SBT&lt;/h2&gt;
+
+&lt;p&gt;Once you have SBT
+installed, you should grab the awesome android plugin for SBT.  This plugin
+primarily provides two things&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A script for creating a new Android project that SBT can compile&lt;/li&gt;
+&lt;li&gt;Several handy SBT targets for doing things like packaging your app for the market and deploying to your device.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;You can find this plugin on GitHub &lt;a href=&quot;https://github.com/jberkel/android-plugin&quot;&gt;https://github.com/jberkel/android-plugin&lt;/a&gt;.
+Go there then click on 'Downloads'.  Download verion 0.5.1 (newer version should work if available).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Go to &lt;a href=&quot;https://github.com/jberkel/android-plugin&quot;&gt;https://github.com/jberkel/android-plugin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Click Downloads&lt;/li&gt;
+&lt;li&gt;Download the latest version (at the time of writing that was 0.5.1)&lt;/li&gt;
+&lt;li&gt;Extract it to $root/opt/android-plugin&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Then you'll have the latest version of the Android project plugin locally.
+We'll use this in the next post to create our Sbt project with Android support.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;That’s it for now!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, at this point you've got all of the required software installed.
+Let's review.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;IntelliJ&lt;/em&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you're using OS X or Windows then IntelliJ is installed as a regular application.&lt;/li&gt;
+&lt;li&gt;If you're using Linux then IntelliJ is installed in $root/opt/intellij&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Scala 2.8.1&lt;/em&gt; is installed to $root/opt/scala&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Android SDK (and the Android 2.1 platform)&lt;/em&gt; is installed to $root/opt /android-sdk&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;simple-build-tool&lt;/em&gt; is installed according to the instructions on their site&lt;/li&gt;
+&lt;li&gt;jberkel’s android-plugin for SBT&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Next time we’ll cover creating the Android SBT project using jberkel’s
+fantastic android-plugin and also doing things like deploying the app to your
+phone and packaging it for the market. In the third post we’ll talk about
+setting up IntelliJ to edit the code in that project and launch your SBT
+targets. In the final post of this series we’ll go over how getting started
+unit testing in IntelliJ with ScalaTest. See you next time&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2010/10/12/the-mind-of-a-mnemonist</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2010/10/12/the-mind-of-a-mnemonist.html"/>
+    <title>The Mind of a Mnemonist</title>
+    <updated>2010-10-12T00:00:00-04:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;I just finished reading &lt;a href=&quot;http://www.amazon.com/Mind-Mnemonist-Little-about-Memory/dp/0674576225&quot;&gt;The Mind of a Mnemonist&lt;/a&gt; by A.R. Luria.  The book
+is an intriguing glimpse into a different way of thinking.  Luria describes
+several sessions and written exchanges with &lt;a href=&quot;http://en.wikipedia.org/wiki/Solomon_Shereshevsky&quot;&gt;Solomon Sherashevsky&lt;/a&gt;.
+Sherashevsky had &lt;a href=&quot;http://en.wikipedia.org/wiki/Synesthesia&quot;&gt;synesthesia&lt;/a&gt; and an incredible memory.   The book covers
+Luria's interactions with Sherashevsky over the period of about 30 years.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Memory&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While Luria describes Sherashevsky's memory as eidetic
+(photographic), it isn't anything like what I imagined a photographic memory
+would be.  For example, when given a list of words or numbers to memorize
+Sherashevsky would not merely take a mental picture of the list.  Instead, he
+would construct a scene, often on a road near where he grew up, and place each
+item in the scene.  He relied so completely on the vividness of the mental
+image he constructed that if he were to place an item somewhere that it would
+be hard to see, such as an egg near a white wall, then he might miss it during
+recall. Luria also mentioned throughout the book that Sherashevsky was able to
+recall lists of various items from their sessions decades prior.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reality and Imagination&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The mental imagery that Sherashevsky created were so real that
+they were able to trick both his cognitive processes and bodily function.
+Sherashevsky related accounts of how when he was a child he frequently fooled
+himself into thinking that time had stopped because he pictured that the hands
+on his clock had not moved.  Even more intriguing was when Sherashevsky
+demonstrated under controlled conditions his ability to both raise and lower
+his heart rate and to change the temperature of his two hands at will.
+Sherashevsky's method for these feats was simply to picture himself in
+situations which called for it such as running to catch a train or holding a
+block of ice.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Control&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Unfortunately for Sherashevsky, he didn't have much
+control over his rich sensory experience.  When reading a story or listening
+to someone talk his mind would be flooded with images, sounds, and smells of
+all kinds.  While it is likely that this extra sensory information contributed
+to his fantastic memory, it also made it very difficult for him to understand
+many things that we take for granted.  A simple conversation would force his
+mind to wander in whatever direction his synesthesia directed him.  It
+required great effort for him to focus on a single topic.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The book covers more topics than I have mentioned here such as Sherashevsky's
+personality and the challenges that abstract thought presented him.  Luria's
+account of Sherashevsky is a very personal one for a patient and I'm thankful
+for that dimension of the story.  It helped me having a real person I could
+relate to throughout the story.  This made me wonder about how someone who can
+picture such convincing mental representations of people and places would cope
+with the loss of a loved one.  It's a wonder to me how he was able to keep his
+sanity at all. Luria has a similar work, also in the genre of 'Romantic
+Science', titled &lt;a href=&quot;http://www.amazon.com/gp/product/0674546253/ref=pd_lpo_k2_dp_sr_1?pf_rd_p=486539851&amp;amp;pf_rd_s=lpo-top-stripe-1&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=0674576225&amp;amp;pf_rd_m=ATVPDKIKX0DER&amp;amp;pf_rd_r=0SBADN0KJ3A0HVZY2VE4&quot;&gt;'The Man with a Shattered World: The History of a Brain
+Wound'&lt;/a&gt; that is probably also worth a look.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2010/09/26/evolutionary-purpose</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2010/09/26/evolutionary-purpose.html"/>
+    <title>Evolutionary purpose</title>
+    <updated>2010-09-26T00:00:00-04:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;I am really interested in how our minds work. Not
+having a background in neuroscience, neurobiology, or neuro-anything for that
+matter, I'm currently limited to reading lighter material on the subject until
+my understanding goes deeper. I've read books that cover the social side of
+how our minds (fail to) work (e.g. &lt;a href=&quot;http://www.amazon.com/Drunkards-Walk-Randomness-Rules-Lives/dp/0375424040&quot;&gt;The Drunkard's Walk&lt;/a&gt;) and some that are
+more technical (but still light) such as &lt;a href=&quot;http://www.amazon.com/How-We-Decide-Jonah-Lehrer/dp/0618620117&quot;&gt;How We Decide&lt;/a&gt; and &lt;a href=&quot;http://www.amazon.com/Being-Certain-Believing-Right-Youre/dp/0312359209&quot;&gt;On Being
+Certain&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;At the moment I'm reading &lt;a href=&quot;http://www.amazon.com/Seeing-Red-Consciousness-Behavior-Initiative/dp/0674021797&quot;&gt;Seeing Red: A Study in
+Consciousness&lt;/a&gt;. In it Nicholas Humphrey, the author, aims to present an
+evolutionary purpose for consciousness which he argues is independent of
+perception. At one point in the book Humphrey writes the following regarding
+sensations: &lt;em&gt;It is fair to assume the capacity has been designed in by natural
+selection&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I take issue with the assumption. I've always had a problem with
+this approach to reasoning about any single element of a species. Why must
+everything be 'designed in' by natural selection? It seems just as likely to
+me that any given attribute we or any other species posses could simply be a
+side effect of some other positive attribute which actually was 'designed in'
+by natural selection.&lt;/p&gt;
+
+&lt;p&gt;To be clear, my issue is not with the notion of human
+evolution specifically favoring sensations. A number of reasons come to mind
+in support of this point of view. My problem is really the order of the
+reasoning. To say that 'This attribute exists, therefore it must have an
+evolutionary purpose' seems absurd to me. I find it hard to believe that
+random genetic mutations are so delicate as to change only one thing at a time
+or that natural selection is so precise to weed out everything except the bare
+minimum needed to win.&lt;/p&gt;
+
+&lt;p&gt;Unless I'm missing something fundamental with evolution
+and natural selection, I suspect that Humphrey only presented his reasoning in
+this order for dramatic effect.  After all, it is his stated goal to give an
+evolutionary purpose to consciousness.&lt;/p&gt;
+
+&lt;p&gt;However, it's still disconcerting how
+often I see that logic being used to reason about how we got in our current
+evolutionary state. It seems to be quite common among these light-neurosciency
+books I've been reading.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2010/09/04/my-hp-envy-is-meh</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2010/09/04/my-hp-envy-is-meh.html"/>
+    <title>My HP Envy 14 is 'meh'</title>
+    <updated>2010-09-04T00:00:00-04:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;I recently bought an &lt;a href=&quot;http://www.shopping.hp.com/webapp/series/category/notebooks/ENVY14_series/3/computer_store&quot;&gt;HP Envy 14&lt;/a&gt;. I followed news about the laptop before
+it was release and was pretty excited. It's a nice size for me (14.5 inches),
+has a really good screen, was touted to get something like 6 hours battery
+life, solid build for a non-Macbook, and decent internals. Even with all this,
+I KNEW that a Macbook would suite me better. You see, I’m a recovering .NET
+developer. I’ve grown to really appreciate the flexibility of a Unix-based
+development and deployment environment. I’ve also had a fair number of
+laptops. Some Dell, some HP, and some Macbooks. My work-issued laptop is a
+Macbook Pro 15 and I’ve owned a Macbook Pro 13 (but sold it shortly after
+getting the MBP 15 from work). The Good&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Beautiful screen. The screen on this is a little brighter than my MBP 15 and has a higher resolution (1600x900)&lt;/li&gt;
+&lt;li&gt;Good keyboard. Has chic-let style keys that I really like.&lt;/li&gt;
+&lt;li&gt;Touchpad is pretty good after installing &lt;a href=&quot;http://code.google.com/p/envy14-trackpad-app/&quot;&gt;this&lt;/a&gt; (though not as good as my MBP)&lt;/li&gt;
+&lt;li&gt;Nice size, 14.5inches. Very portable.&lt;/li&gt;
+&lt;li&gt;Looks nice IMHO&lt;/li&gt;
+&lt;li&gt;Can drive 2 external monitors.  Mine won’t power the laptop display and 2 monitors at the same time, but &lt;a href=&quot;http://forum.notebookreview.com/6421176-post2308.html&quot;&gt;others can&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;The Bad&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Battery life. I get 3 hours normally. This sucks and is nowhere near
+HP's original claims. I know that everyone says you should cut advertised
+battery life in half but this is getting more and more ridiculous as
+advertised battery life is going up.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Switchable graphics.  Most of the time, in Windows, you can’t switch to
+the integrated graphics.  You press the button in their cheesy switching app
+and nothing happens.  It really just shouldn’t be this hard.  In Linux,
+however, I can always make it switch cards.  Unfortunately the ATI drivers
+aren’t there yet in Linux.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Can’t drive any external monitors unless using the discrete graphics card.
+This wouldn’t be so bad for me if I could use the discrete graphics card in
+Linux.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;USB peripherals cannot wake the computer up from hibernate, or sleep
+(unless they were plugged in when it went to sleep).  My MBP 15 can do this
+and I really appreciate that ability.  Without this, I have to open the lid
+just to get it to wake up, then close it, then subsequently wake it up all
+over again with the peripherals.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Linux support isn’t quite there yet.  The Linux ATI driver support for the
+discrete card in this laptop is a work in progress.  You can see the progress
+that Alex Deucher is making &lt;a href=&quot;http://cgit.freedesktop.org/xorg/driver/xf86-video-ati/log/?h=evergreen_accel&quot;&gt;here&lt;/a&gt;.  That branch is for acceleration
+support for this line of cards from ATI….not this specific card.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;In the end, while I’m not thrilled with my purchase of this laptop, I can’t
+say that I’m super let down.  This is still the nicest laptop that I have
+owned.  It is serving its purpose of giving me a good place to work on side
+projects outside of my work laptop and to sharpen my .NET saw.  None of the
+problems I have with the laptop are show-stoppers, though if I were still
+travelling a lot then the battery life would be a bigger downside.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2010/09/01/plant-test-factory-for-dotnet</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2010/09/01/plant-test-factory-for-dotnet.html"/>
+    <title>Plant Test Factory for .NET</title>
+    <updated>2010-09-01T00:00:00-04:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href=&quot;http://github.com/jbrechtel/plant&quot;&gt;Plant&lt;/a&gt; is a test factory for .NET 4.0. I created Plant because factories
+like this are something that I've gotten very used to in Ruby.  As I started
+writing more and more tests in my C# projects, I noticed that I was writing
+more and more helper test methods to create commonly used model objects in my
+tests.  This would often lead to ad-hoc and abused chunks of code that became
+harder and harder to maintain.  The Ruby ecosystem has good answers to this
+problem, there’s &lt;a href=&quot;http://github.com/thoughtbot/factory_girl&quot;&gt;factory_girl&lt;/a&gt; and &lt;a href=&quot;http://github.com/notahat/machinist&quot;&gt;machinist&lt;/a&gt;.  I couldn’t find
+anything like that for .NET.  &lt;a href=&quot;http://nbuilder.org/&quot;&gt;NBuilder&lt;/a&gt; is in that area, but feels too
+heavy handed for what I wanted.&lt;/p&gt;
+
+&lt;h6&gt;Goals&lt;/h6&gt;
+
+&lt;p&gt;The primary goal of this tool is to allow you to write smaller and more
+focused tests.  I find this beneficial because, like most other things in
+software, tests with fewer concerns tend to be easier to maintain and provide
+more value.  Tests which test less are more resistant to illegitimate
+failures. A secondary goal of mine is to keep Plant’s syntax as lightweight
+and concise as possible.  Code with less noise is easier to understand and
+code that’s easier to understand helps you get your job done.  C# doesn’t
+always make this easy.  Not being able to assign a delegate to an anonymous
+type forces me to require users to use a special class for some things (i.e.
+LazyProperty).  As this project grows, I’ll do my best to keep the syntax
+readable.&lt;/p&gt;
+
+&lt;h6&gt;Direction&lt;/h6&gt;
+
+&lt;p&gt;The only client of the Plant project at the moment is pretty small and will
+likely never use all of Plant’s features.  However, instead of dreaming up
+features that I think will one day be useful for Plant I decided to copy
+factory_girl’s feature-set.   I’ve used factory_girl quite a bit in the past
+and found almost every one of its features useful at some point or another.
+So far I’ve got several of factory_girl’s features implemented, one it doesn’t
+have (creation via constructor parameters), and there are several Plant is
+still missing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Plant’s features at the time of this writing are&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Object creation via properties&lt;/li&gt;
+&lt;li&gt;Object creation via constructor arguments&lt;/li&gt;
+&lt;li&gt;Overriding default property and constructor argument values&lt;/li&gt;
+&lt;li&gt;Module object definition&lt;/li&gt;
+&lt;li&gt;Lazily evaluated property and constructor argument values&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Upcoming features&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Allowing multiple named definitions for one object&lt;/li&gt;
+&lt;li&gt;Sequenced properties (you can do this today with lazy properties, but I want to make it easier)&lt;/li&gt;
+&lt;li&gt;Lazy associations (again, something you can do today with lazy properties, but the syntax can be more concise and explicit)&lt;/li&gt;
+&lt;li&gt;Allow user to specify after-creation actions to be taken on created objects (like saving them to a database)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Scenarios that Plant does not support&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Constructor arguments whose names differ only in capitalization.&lt;/li&gt;
+&lt;li&gt;Indexed properties&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Refactoring.  Since properties are passed around using anonymous objects,
+refactoring tools will miss them.  This can be fixed for properties but not
+for constructor arguments.  I’m not sure what the right answer is here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Open generic types (You can tell Plant how to create a Foo&lt;string&gt;, but
+not a Foo&lt;T&gt; where T is specified at time of creation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Find it on Github here: &lt;a href=&quot;http://github.com/jbrechtel/plant&quot;&gt;http://github.com/jbrechtel/plant&lt;/a&gt; (the current
+release is tagged 0.1.0 &lt;a href=&quot;http://github.com/jbrechtel/plant/tree/0.1.0&quot;&gt;here&lt;/a&gt;) It will be available on &lt;a href=&quot;http://nu.wikispot.org/&quot;&gt;Nu&lt;/a&gt; shortly.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2010/03/07/anti-agile-flak</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2010/03/07/anti-agile-flak.html"/>
+    <title>Anti-Agile flak</title>
+    <updated>2010-03-07T00:00:00-05:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;There were a couple of &lt;a href=&quot;http://www.infoq.com/news/2010/03/open-up-debate&quot;&gt;interesting&lt;/a&gt; &lt;a href=&quot;http://www.infoq.com/news/2010/03/serious-flaws-agile-scrum&quot;&gt;posts&lt;/a&gt; on InfoQ last week about
+problems with Agile. First, a few points from Mark Lines' &lt;a href=&quot;http://agile.dzone.com/news/agile-development-grows&quot;&gt;post&lt;/a&gt; Here's one
+of his 'common sense improvements' to Agile:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;...the Unified Process breaks a project up into 4 distinct Phases, after
+which the iterations are named.  In this way, stakeholders can know how the
+project is progressing...Other agile methodologies simply number their
+iterations sequentially.  Being in iteration 4 tells me nothing about the
+progress of the project towards completion of its initial vision.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Here Kai is mostly making an informative statement about his flavor of Unified
+Process, but ends it with a dig at Agile iteration numbers.
+Agile projects provide other artifacts for getting a high level picture of the
+status of the project such as burn down charts.  Iteration numbers are more
+useful as historical markers.  If you want a detailed view of an Agile
+project's status then attend an iteration planning meeting. His point here is
+like saying &quot;My new car is better than yours because I put the blinker at the
+top of the steering column.  You don't have anything at the top of your
+steering column!&quot; Mark also lists many issues that Agile projects have to face
+such as resistance to pair programming, mandated bureaucracy, insistence that
+projects cannot be executed independently, and perceived difficulty in
+frequent deployments.  He claims that Agile projects often trivialize or
+ignore these realities. In my experience we will fight against these issues.
+If the fight cannot be won or is not worth it then we give up.  There are
+times when some of these issues cannot be overcome.  Some projects must take a
+dependency on other ongoing projects and sometimes you can't deploy
+frequently.  But to fight against these issues is not trivializing or ignoring
+them, quite the opposite: we are acknowledging and addressing them. Now on to
+Kai Gilb's &lt;a href=&quot;http://gilb.com/blogpost111-7-truths-about-Agile-and-Scrum-that-people-don-t-want-to-hear-Part-0-of-7&quot;&gt;post&lt;/a&gt; Kai makes two claims (so far, his post is only at part 2
+of 7 as I write this):&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Agile does not focus on stakeholder value&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To make this point he shows a diagram that represents a Scrum workflow (from
+here: &lt;a href=&quot;http://en.wikipedia.org/wiki/File:Scrum_process.svg&quot;&gt;http://en.wikipedia.org/wiki/File:Scrum_process.svg&lt;/a&gt;) Nowhere on
+this diagram does it mention stakeholder value.  It's just a product backlog
+going into a sprint backlog, going through development and producing working
+software. To assert that this means Scrum doesn't focus on delivering value
+you would have to intentionally ignore the creation of the product and sprint
+backlogs.  It's almost as if he stumbled on to this lone diagram and said
+&quot;Hey, there's no mention of value here, I can use this to say Scrum doesn't
+focus on value!&quot;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Agile 'baby talk' kills developer creativity &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For this point he uses the following user story as an example: &quot;As a
+buyer, I want to place a book in the shopping cart&quot; While this story does come
+from some Scrum training materials it is used in the context of describing a
+product backlog, not how to create a story.  So, I'd agree with him if this
+were your typical user story, but it isn't.  At best this is the kind of story
+crafted and accepted by an inexperienced team.  It doesn't talk about the
+business value it would provide.  Doing so would serve to both justify its
+existence and help developers think of appropriate solutions.  Also, the story
+goes too far by prescribing an implementation of a desired function instead of
+stating the desired function. I suppose these kinds of posts are common (both
+the ones I'm responding to and mine) so I probably won't make another post
+like this.  However I would gladly continue a dialog along these lines if
+anyone is interested.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://nevercertain.com/2010/02/22/ask-the-right-questions</id>
+    <link type="text/html" rel="alternate" href="http://nevercertain.com/2010/02/22/ask-the-right-questions.html"/>
+    <title>Ask the right questions</title>
+    <updated>2010-02-22T00:00:00-05:00</updated>
+    <author>
+      <name>James Brechtel</name>
+      <uri>http://nevercertain.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;A few months ago, my friend &lt;a href=&quot;http://dpatrickcaldwell.blogspot.com/&quot;&gt;Patrick Caldwell&lt;/a&gt; started a series of blog
+posts about how to land a programming job (&lt;a href=&quot;http://dpatrickcaldwell.blogspot.com/2009/11/how-to-land-job-as-software-engineer.html&quot;&gt;Part 1&lt;/a&gt;, &lt;a href=&quot;http://dpatrickcaldwell.blogspot.com/2009/11/your-resume-how-to-land-job-as-software.html&quot;&gt;Part 2&lt;/a&gt;, &lt;a href=&quot;http://dpatrickcaldwell.blogspot.com/2009/11/your-prescreening-how-to-land-job-as.html&quot;&gt;Part
+3&lt;/a&gt;, &lt;a href=&quot;http://dpatrickcaldwell.blogspot.com/2009/11/your-interview-how-to-land-job-as.html&quot;&gt;Part 4&lt;/a&gt;, &lt;a href=&quot;http://dpatrickcaldwell.blogspot.com/2010/01/your-communication-skills-how-to-land.html&quot;&gt;Part 5&lt;/a&gt;, and &lt;a href=&quot;http://dpatrickcaldwell.blogspot.com/2010/01/your-field-how-to-land-job-as-software.html&quot;&gt;Part 6&lt;/a&gt;). I like his advice and think
+that it's quite helpful to aspiring developers. However, he did miss one
+aspect of the job hunt: finding a job you'll like. Since &quot;like&quot; is a
+subjective term I'll just describe the questions I ask prospective employers
+during interviews. Currently I work at ThoughtWorks and I love it. I
+researched the company very thoroughly before joining. I either asked or
+discovered the answers to all of these questions before I accepted their
+offer. I'm glad to say that working here has met all of my expectations and
+more. Here are the questions that I need answered before I'll work somewhere:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Can I use Open Source Software?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I recently witnessed a project where the team
+had to move off of Git for source control because the client had a policy
+against using GPL software*. This was rather absurd because they had no plans
+to distribute Git or anything using it.  It was merely their source control
+system.  Policies like this cause a number of problems for developers and the
+team as a whole.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;They limit personal freedom by constraining you to a smaller set of tools
+than you would have otherwise. They hinder productivity because, for certain
+classes of software libraries and tools, the best options are open source (Web
+Browsers, Source Control, ORMs, IoC, etc).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;These policies limit your experience and growth. To take this idea to an
+extreme consider if you could only use a proprietary language and framework
+invented by the company you work for. How useful is that experience to you or
+your future employers?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Policies such as these typically demonstrate a lack of maturity in the
+organizations software development practices. Unless your goal is to bring
+that maturity to the company then this would be a reason to stay away.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;em&gt;* The funny thing is that their dev severs ran Linux.&lt;/em&gt; *&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How many different projects will I work on in a typical week?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;My motive behind this one feels
+like a personal preference but I have yet to meet another developer who
+doesn't feel similar on this topic. Before ThoughtWorks, I've had multi-month
+stretches where I'll have to work on more than 5 projects a week. Often
+multiple in one day. This makes work feel like such a grind. It's unproductive
+and harmful to both you and the projects themselves.  Task switching
+constantly might make you a little better at multitasking, but it will never
+be as effective as single tasking. You will also likely develop some nasty
+habits:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;You'll likely goof off more because you'll seldom be very engaged in what
+you're doing.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Switching tasks will be the norm so as soon as a new one becomes available
+you'll be more likely to hop right on it thus losing all the context you've
+built up for your current task.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Since you'll be more error prone (multi-tasking increases your error rate)
+this will make you more accepting of errors in your work.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;I would be very hesitant to take another job where I'll typically be working
+on more than one project in a week.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How do you estimate the time needed to complete work?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Let's face it: there are better developers than you. There
+are faster developers, there are more thorough developers, there are slower
+developers and there are sloppier developers. Couple that with the fact that
+any estimate is just that: an estimate. Be wary of places where the developers
+doing the work are not the ones doing the estimating.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is your software development process?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You should definitely know and be comfortable with how
+they develop software. If they have a process, how that process works, how you
+as a developer fit into that process, and how flexible they are with that
+process. I almost titled this question &quot;Are you Agile?&quot; but decided that would
+be too vague. Many companies will claim to practice Agile, XP or Scrum, but
+without the details of what they're actually doing you risk making some
+incorrect assumptions about how they interpret those labels.  Ask specific
+questions around this topic.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Can I talk to someone else?&lt;/strong&gt;
+Lastly, you should ask to talk to other people you'll be working with. Ideally that would
+include developers, BAs, QAs, PMs or team leads of any kind.  Find out how
+much they like their jobs and try to get a feel for how you'd like to work
+with these people. Your instincts know more than you may think so you should
+probably trust your gut on this one.&lt;/p&gt;
+</content>
+  </entry>
+  
+
+</feed>

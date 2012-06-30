@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="James Brechtel" />
+    <meta name='viewport' content='width=device-width; user-scalable=no'/>
+    <title>Scala and Ruby Rosetta Stone</title>
+    <link href='http://fonts.googleapis.com/css?family=Voltaire|Carme' rel='stylesheet' type='text/css'/>
+    <link href='/stylesheets/site.css' rel='stylesheet' type='text/css'/>
+    <link href='/atom.xml' rel='alternate' type='application/atom+xml' title='Atom feed for nevercertain.com'/>
+  </head>
+  <body>
+    <header>
+      <section class="blog_title">
+        <a href="/"> never certain - a blog by James Brechtel </a>
+      </aside>
+    </header>
+    <article>
+  <header>
+  <a href="/2011/08/17/scala-ruby-rosetta.html">Scala and Ruby Rosetta Stone</a>
+    <br><span class="date">August 17, 2011</span>
+  </header>
+  <p>I write a lot of Ruby at work and Scala in my spare time.
+I thought others who know one language but not the other
+might find a rosetta stone for the two languages useful.</p>
+
+<p>For a more thorough rosetta stone for a variety of languages check
+out <a href="http://rosettacode.org/wiki/Main_Page">Rosetta Code</a>.</p>
+
+<p>The scope of each example is short so that it is easier to jump from
+one language to the other to compare specifics.  There are a lot more
+things you can do in each of these categories in both languages.  However,
+if there are other examples you think should be added then fork the gist in
+question and let me know about it in the comments.</p>
+
+<ul>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#mixins">Mixins</a></li>
+<li><a href="#collections">Collections</a></li>
+<li><a href="#hashmaps">Hash maps</a></li>
+<li><a href="#switches">Case statements and pattern matching</a></li>
+</ul>
+
+
+<p><a name="classes"></a></p>
+
+<h2>Classes</h2>
+
+<p>Here are a few examples of how you might define some basic classes in
+each language.  You can see here that Scala manages to be a bit more
+concise than Ruby.</p>
+
+<h4>Ruby</h4>
+
+<script src="https://gist.github.com/1153103.js"> </script>
+
+
+<h4>Scala</h4>
+
+<script src="https://gist.github.com/1153076.js"> </script>
+
+
+<p><a name="mixins"></a></p>
+
+<h2>Mixins</h2>
+
+<p>Both Ruby and Scala support the idea of <a href="http://en.wikipedia.org/wiki/Mixin">Mixins</a>.  They are known as modules and traits in Ruby
+and Scala respectively.</p>
+
+<p>The examples below are mixins that specialize the results of an existing method on the target class.
+Classic examples of this are <a href="http://www.ruby-doc.org/core/classes/Enumerable.html">Enumerable</a> in Ruby, and <a href="http://www.scala-lang.org/api/current/index.html#scala.collection.Seq">Seq</a> in Scala.  Each of these depend
+on one or more methods in their target class.  Since Scala is statically typed the trait must specify
+something about the class it will be mixed in to.  You can do this with both nominal (named) types and
+structural types (similar to duck typing).  I show both of these in the Scala example below.</p>
+
+<p>Lastly, the Ruby example depends on <a href="http://rails.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Array/Grouping.html#M000833">in_groups_of</a> which comes from ActiveSupport (part of Rails).</p>
+
+<h4>Ruby modules</h4>
+
+<script src="https://gist.github.com/1159939.js"> </script>
+
+
+<h4>Scala traits</h4>
+
+<script src="https://gist.github.com/1159921.js"></script>
+
+
+<p><a name="collections"></a></p>
+
+<h2>Collections</h2>
+
+<p>Below are a few of the things you can do with collections in each language.  Scala has a bit more
+flexibility here when it comes to allowing you to pick the kind of performance characteristics you
+want.  However, when in doubt, just use an IndexedSeq.</p>
+
+<p>Scala also provides mutable and immutable versions of their collections.  Ruby collections are mutable
+but that doesn't mean that each of the methods on a Ruby array will mutate the array.  <a href="http://www.ruby-doc.org/core/classes/Enumerable.html#M001491">Enumerable#map</a>, for
+instance will return a new array.  The convention in Ruby is that if a method ends in ! then it will mutate the
+object and otherwise it will not.  This convention is mostly observed in the core and standard libraries, but not
+entirely.  <a href="http://www.ruby-doc.org/core/classes/Array.html#M000255">Array#delete</a>, for instance, is a Ruby core library method that mutates an object but does not
+end with a !.</p>
+
+<h4>Ruby collections</h4>
+
+<script src="https://gist.github.com/1159992.js"></script>
+
+
+<h4>Scala collections</h4>
+
+<script src="https://gist.github.com/1159981.js"></script>
+
+
+<p><a name="hashmaps"></a></p>
+
+<h2>Hash maps</h2>
+
+<p>Each languages' core library comes with a hash map implementation.  Ruby calls theirs Hash and Scala theirs
+Map.  Great.</p>
+
+<p>Ruby has hash literals which is convenient.  Scala's flexible syntax allows a really close approximation
+of hash literals, syntactically, without the addition of specialized syntax for them.</p>
+
+<h4>Ruby hashes</h4>
+
+<script src="https://gist.github.com/1160016.js"></script>
+
+
+<h4>Scala maps</h4>
+
+<script src="https://gist.github.com/1160045.js"></script>
+
+
+<p><a name="switches"></a></p>
+
+<h2>Case statements and pattern matching</h2>
+
+<p>I don't care much for mentioning case statements in Ruby on their own.  They are, however, the closest
+corollary to <a href="http://kerflyn.wordpress.com/2011/02/14/playing-with-scalas-pattern-matching/">pattern matching</a> in Scala.  Scala's pattern matching support is very powerful.  I'll present
+how you would accomplish some similar tasks in each and then show a few more powerful pattern matching
+examples in Scala.</p>
+
+<h4>Ruby case statements</h4>
+
+<script src="https://gist.github.com/1160828.js"></script>
+
+
+<h4>Scala pattern matching</h4>
+
+<script src="https://gist.github.com/1161420.js"></script>
+
+
+
+
+</article>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nevercertain';
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = 'unique_dynamic_id_1234';
+    // var disqus_url = 'http://example.com/permalink-to-page.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </body>
+  <script type="text/javascript">
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-9950155-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+</html>
